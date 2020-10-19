@@ -8,7 +8,8 @@ def require_answer(question):
 
 def get_model():
   model = {}
-  model['name'] = require_answer('Name: ')
+  model['name'] = require_answer('Name: ').upper()
+  model['title'] = model['name'].title()
   return model
 
 def main():
@@ -16,9 +17,9 @@ def main():
 
   env = Environment(loader=FileSystemLoader('templates'))
   template = env.get_template('statblock.txt')
-  
-  stat_block = template.render()
-  filename = model['name'] + '.htm'
+  stat_block = template.render(model)
+
+  filename = model['name'].lower() + '.htm'
   with open(filename, 'w') as f:
     f.write(stat_block)
   print('Stat block ' + filename + ' created')

@@ -3,7 +3,7 @@
 Pathfinder Statblock Template
 ==============================
 --><head>
-	<title>Kanjougas</title>
+	<title>{{ title }}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 	<style type="text/css">
 		body  {
@@ -61,7 +61,7 @@ Pathfinder Statblock Template
 <body>
 <table class="name">
 	<tbody><tr>
-		<td class="name">KANJOUGAS</td>
+		<td class="name">{{ name }}</td>
 		<td class="name" align="right">CR
 8
 		</td>
