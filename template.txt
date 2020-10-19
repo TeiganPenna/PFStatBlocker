@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><!--
+Pathfinder Statblock Template
+==============================
+--><head>
+	<title>Kanjougas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<style type="text/css">
+		body  {
+			font-family: Nexus, Gandhi Sans, Arial, sans-serif;
+			font-size: medium;
+			text-align: left;
+			color: black;
+			background: white;
+			font-weight: normal;
+			margin: 0px;
+			padding: 5px;
+		}
+		p {
+			text-indent: -1em;
+			margin-left: 1em;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		p.xp {
+			font-size: large;
+		}
+		p.spells {
+			margin-left: 2em;
+		}
+		p.sa {
+			text-indent: 1em;
+		}
+		table.section {
+			width: 100%;
+			font-size: small;
+			font-weight: bold;
+			border-top-width: 1px;
+			border-top-color: black;
+			border-top-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-color: black;
+			border-bottom-style: solid;
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		table.name {
+			width: 100%;
+			color: white;
+			background: black;
+			font-weight: bold;
+		}
+		td.name {
+			font-variant: small-caps;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<table class="name">
+	<tbody><tr>
+		<td class="name">KANJOUGAS</td>
+		<td class="name" align="right">CR
+8
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+
+<!-- gender, classes -->
+<p>Male mummy monk 4</p>
+
+<!-- alignment, size, race -->
+<p>LN Medium undead</p>
+
+<!-- initiative, senses -->
+<p>
+<b>Init</b> +6;
+<b>Senses</b>
+<!-- Sense and Vision TYPE Abilities --><!-- End Sense TYPE Abilities -->
+darkvision 60ft; Perception +24
+</p>
+
+<!-- auras -->
+
+<table class="section">
+  <tbody><tr>
+    <td>DEFENSE</td>
+  </tr>
+</tbody></table>
+
+<!-- armor class -->
+<p>
+<b>AC</b> 26, <b>touch</b> 16, <b>flat-footed</b> 24 (+2 Dex, +1 monk, +3 Wis, +10 natural)
+</p>
+
+<!-- hit points -->
+<b>hp</b> 106 (12d8+52)<!-- ModifyHP TYPE Abilities --><!-- End ModifyHP TYPE Abilities -->
+<br>
+<b>Fort</b> +10, <b>Ref</b> +10, <b>Will</b> +15<!-- SaveBonus TYPE Abilities -->, +2 vs. enchantments<br>
+<!-- End SaveBonus TYPE Abilities -->
+
+<!--- defensive abilities, damager reduction, immune, resist, SR --->
+<p>
+<!-- Defensive TYPE Abilities -->
+<b>Defensive Abilities</b> evasion; <b>DR</b> 5/-;
+<!-- End Defensive TYPE Abilities -->
+
+<!-- Immunity TYPE Abilities -->
+<b>Immune</b> undead traits
+<!-- End Immunity TYPE Abilities --> <!-- Resistance TYPE Abilities --> <!-- End Resistance TYPE Abilities -->
+</p>
+
+<!-- Weakness TYPE Abilities -->
+<b>Weaknesses</b> vulnerable to fire
+<!-- End Weakness TYPE Abilities -->
+
+<!-- Defensive Gear -->
+<!-- End Defensive Gear -->
+
+<table class="section">
+  <tbody><tr>
+    <td>OFFENSE</td>
+  </tr>
+</tbody></table>
+<b>Speed</b> 40 ft.<!-- ModifyMovement TYPE Abilities -->
+<!-- End ModifyMovement TYPE Abilities -->
+
+<!-- Attacks -->
+<br>
+<b>Melee</b> flurry of blows +17/+17/+12 (1d8+9), +1 slam +18 (1d8+9 plus mummy rot)<br>
+<!-- End Attacks -->
+
+<!-- Space and Reach -->
+
+<!-- SpecialAttack TYPE Abilities -->
+<b>Special Attacks</b> flurry of blows, stunning fist (6/day, DC 15)
+<!-- End SpecialAttack TYPE Abilities -->
+
+<!-- Innate Spell-Like Abilities -->
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+<!-- End Other Spell-Like Abilities -->
+
+<!-- Domain Power Spell-Like Abilities -->
+
+
+<!-- Known Spells -->
+<!-- End Known Spells -->
+
+<!-- Prepared Spells -->
+<!-- End Prepared Spells -->
+
+<!-- domains -->
+<!-- End Domain list -->
+
+<table class="section">
+  <tbody><tr>
+    <td>STATISTICS</td>
+  </tr>
+</tbody></table>
+
+<b>Str</b> 26, <b>Dex</b> 14, <b>Con</b> -, <b>Int</b> 10, <b>Wis</b> 17, <b>Cha</b> 18
+<br>
+
+<b>Base Atk</b> +9; <b>CMB</b> +18<b>; CMD</b> 33
+<br>
+
+<p>
+<b>Feats </b>Combat Reflexes, Deflect Arrows, Improved Initiative, Improved Unarmed Strike, Iron Will, Lightning Reflexes, Power Attack, Skill Focus (Perception), Stunning Fist, Vital Strike</p>
+
+<p>
+<b>Skills</b>
+Acrobatics +17 (+21 when jumping), Intimidate +19, Perception +24, Sense Motive +18
+</p>
+
+
+<!-- Languages and Communicate TYPE Abilities -->
+<p><b>Languages</b> Common, Tien</p>
+<!-- End Languages Communicate TYPE Abilities -->
+
+<!-- SpecialQuality TYPE Abilities -->
+<p>
+<b>SQ</b> fast movement, ki pool (5 points, magic), maneuver training, slow fall 20 ft.</p>
+<!-- End SpecialQuality TYPE Abilities -->
+
+<!-- Animal Tricks TYPE Abilities -->
+<!-- End Animal Tricks TYPE Abilities -->
+
+
+<!-- Afflictions Start -->
+<!-- Afflictions End -->
+
+<!-- Equipment -->
+<p>
+<!-- Combat Gear --><b>Gear</b> <i>amulet of mighty fists +1</i>, <i>belt of giant strength</i>, black key</p>
+<!-- Equipment End -->
+
+<!-- SpellBooks -->
+<!-- End SpellBooks -->
+
+</body></html>
