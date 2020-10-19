@@ -10,6 +10,13 @@ def get_model():
   model = {}
   model['name'] = require_answer('Name: ').upper()
   model['title'] = model['name'].title()
+  cr = input('CR: ')
+  if cr:
+    model['cr'] = 'CR: ' + cr
+  gender = require_answer('Gender: ').title()
+  race = require_answer('Race: ').lower()
+  classes = require_answer('Class(es): ').lower()
+  model['gender_race_class'] = ' '.join([gender, race, classes])
   return model
 
 def main():

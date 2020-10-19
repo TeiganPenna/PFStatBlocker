@@ -62,9 +62,7 @@ Pathfinder Statblock Template
 <table class="name">
 	<tbody><tr>
 		<td class="name">{{ name }}</td>
-		<td class="name" align="right">CR
-8
-		</td>
+		<td class="name" align="right">{{ cr }}</td>
 	</tr>
 </tbody></table>
 
@@ -72,7 +70,7 @@ Pathfinder Statblock Template
 
 
 <!-- gender, classes -->
-<p>Male mummy monk 4</p>
+<p>{{ gender_race_class }}</p>
 
 <!-- alignment, size, race -->
 <p>LN Medium undead</p>
