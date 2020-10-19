@@ -1,11 +1,12 @@
-from jinja2 import Template
+from jinja2 import Environment, FileSystemLoader
 
 def get_template():
   with open('template.txt') as f:
     return Template(f.read())
 
 def main():
-  template = get_template()
+  env = Environment(loader=FileSystemLoader('templates'))
+  template = env.get_template('statblock.txt')
   stat_block = template.render()
   with open('kanjougas.htm', 'w') as f:
     f.write(stat_block)
