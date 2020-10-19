@@ -1,0 +1,4 @@
+# vim swp files
+*.swp
+# output htm files
+*.htm
