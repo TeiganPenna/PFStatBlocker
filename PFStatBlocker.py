@@ -27,6 +27,10 @@ def get_model():
   if classes:
     model['class'] = classes
 
+  model['alignment'] = require_answer('Alignment: ')
+  model['size'] = require_answer('Size: ')
+  model['type'] = require_answer('Type: ')
+
   return model
 
 def main():
