@@ -72,10 +72,12 @@ Pathfinder Statblock Template
 
 
 <!-- gender, classes -->
-<p>{{ gender|title|trim }} {{ race|lower|trim }} {{ class|lower|trim }}</p>
+{% if gender is defined or race is defined or class is defined %}
+<p>{% if gender is defined %}{{ gender|title|trim }} {{ race|lower|trim }}{% if class is defined %} {{ class|lower|trim }}{% endif %}{% else %}{{ race|title|trim }}{% if class is defined %} {{ class|lower|trim }}{% endif %}{% endif %}</p>
+{% endif %}
 
 <!-- alignment, size, race -->
-<p>LN Medium undead</p>
+<p>{{ alignment|upper|trim }} {{ size|title|trim}} {{ type|lower|trim }}</p>
 
 <!-- initiative, senses -->
 <p>

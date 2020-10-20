@@ -10,15 +10,23 @@ def get_model():
   print('Fields with a * are required.')
   model = {}
   model['name'] = require_answer('Name: ')
+
   cr = input('CR: ')
   if cr:
     model['cr'] = 'CR: ' + cr
-  gender = require_answer('Gender: ')
-  model['gender'] = gender
-  race = require_answer('Race: ')
-  model['race'] = race
-  classes = require_answer('Class(es): ')
-  model['class'] = classes
+
+  gender = input('Gender: ')
+  if gender:
+    model['gender'] = gender
+
+  race = input('Race: ')
+  if race:
+    model['race'] = race
+
+  classes = input('Class(es): ')
+  if classes:
+    model['class'] = classes
+
   return model
 
 def main():
