@@ -7,16 +7,18 @@ def require_answer(question):
   raise 'This field is required!'
 
 def get_model():
+  print('Fields with a * are required.')
   model = {}
-  model['name'] = require_answer('Name: ').upper()
-  model['title'] = model['name'].title()
+  model['name'] = require_answer('Name: ')
   cr = input('CR: ')
   if cr:
     model['cr'] = 'CR: ' + cr
-  gender = require_answer('Gender: ').title()
-  race = require_answer('Race: ').lower()
-  classes = require_answer('Class(es): ').lower()
-  model['gender_race_class'] = ' '.join([gender, race, classes])
+  gender = require_answer('Gender: ')
+  model['gender'] = gender
+  race = require_answer('Race: ')
+  model['race'] = race
+  classes = require_answer('Class(es): ')
+  model['class'] = classes
   return model
 
 def main():

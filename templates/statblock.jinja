@@ -3,7 +3,7 @@
 Pathfinder Statblock Template
 ==============================
 --><head>
-	<title>{{ title }}</title>
+	<title>{{ name|title|trim }}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 	<style type="text/css">
 		body  {
@@ -61,8 +61,10 @@ Pathfinder Statblock Template
 <body>
 <table class="name">
 	<tbody><tr>
-		<td class="name">{{ name }}</td>
-		<td class="name" align="right">{{ cr }}</td>
+		<td class="name">{{ name|upper|trim }}</td>
+		{% if cr is defined %}
+		<td class="name" align="right">{{ cr|trim }}</td>
+		{% endif %}
 	</tr>
 </tbody></table>
 
@@ -70,7 +72,7 @@ Pathfinder Statblock Template
 
 
 <!-- gender, classes -->
-<p>{{ gender_race_class }}</p>
+<p>{{ gender|title|trim }} {{ race|lower|trim }} {{ class|lower|trim }}</p>
 
 <!-- alignment, size, race -->
 <p>LN Medium undead</p>
