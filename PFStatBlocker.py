@@ -37,6 +37,23 @@ def get_model():
   required_field(model, 'initiative')
   optional_field(model, 'senses')
   required_field(model, 'perception')
+  optional_field(model, 'aura', 'Aura (Range, DC)')
+  required_field(model, 'ac', 'AC')
+  required_field(model, 'touch_ac', 'Touch AC')
+  required_field(model, 'flatfooted_ac', 'Flat-footed AC')
+  required_field(model, 'ac_breakdown', 'AC breakdown')
+  required_field(model, 'hp', 'HP')
+  required_field(model, 'hp_breakdown', 'HP breakdown')
+  required_field(model, 'fort', 'Fort save')
+  required_field(model, 'ref', 'Reflex save')
+  required_field(model, 'will', 'Will save')
+  optional_field(model, 'save_bonus', 'Additional save bonuses')
+  optional_field(model, 'defensive_abilities', 'Defensive Abilities')
+  optional_field(model, 'dr', 'DR')
+  optional_field(model, 'immunities')
+  optional_field(model, 'resistances')
+  optional_field(model, 'sr', 'SR')
+  optional_field(model, 'weaknesses')
 
   return model
 

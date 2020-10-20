@@ -81,13 +81,16 @@ Pathfinder Statblock Template
 
 <!-- initiative, senses -->
 <p>
-<b>Init</b> {{ initiative }};
+<b>Init</b> {{ initiative|trim }};
 <b>Senses</b>
 <!-- Sense and Vision TYPE Abilities --><!-- End Sense TYPE Abilities -->
-{% if senses is defined %}{{ senses }}; {% endif %}Perception {{ perception }}
+{% if senses is defined %}{{ senses|lower|trim }}; {% endif %}Perception {{ perception|trim }}
 </p>
 
 <!-- auras -->
+{% if aura is defined %}
+<p><b>Aura</b> {{ aura|lower|trim }}
+{% endif %}
 
 <table class="section">
   <tbody><tr>
@@ -97,28 +100,24 @@ Pathfinder Statblock Template
 
 <!-- armor class -->
 <p>
-<b>AC</b> 26, <b>touch</b> 16, <b>flat-footed</b> 24 (+2 Dex, +1 monk, +3 Wis, +10 natural)
+<b>AC</b> {{ ac }}, <b>touch</b> {{ touch_ac }}, <b>flat-footed</b> {{ flatfooted_ac }} ({{ ac_breakdown }})
 </p>
 
 <!-- hit points -->
-<b>hp</b> 106 (12d8+52)<!-- ModifyHP TYPE Abilities --><!-- End ModifyHP TYPE Abilities -->
+<b>hp</b> {{ hp }} ({{ hp_breakdown }})<!-- ModifyHP TYPE Abilities --><!-- End ModifyHP TYPE Abilities -->
 <br>
-<b>Fort</b> +10, <b>Ref</b> +10, <b>Will</b> +15<!-- SaveBonus TYPE Abilities -->, +2 vs. enchantments<br>
+<b>Fort</b> {{ fort }}, <b>Ref</b> {{ ref }}, <b>Will</b> {{ will }}<!-- SaveBonus TYPE Abilities -->{% if save_bonus is defined %}, {{ save_bonus }}{% endif %}<br>
 <!-- End SaveBonus TYPE Abilities -->
 
 <!--- defensive abilities, damager reduction, immune, resist, SR --->
 <p>
-<!-- Defensive TYPE Abilities -->
-<b>Defensive Abilities</b> evasion; <b>DR</b> 5/-;
-<!-- End Defensive TYPE Abilities -->
-
-<!-- Immunity TYPE Abilities -->
-<b>Immune</b> undead traits
-<!-- End Immunity TYPE Abilities --> <!-- Resistance TYPE Abilities --> <!-- End Resistance TYPE Abilities -->
+{% if defensive_abilities is defined %}<b>Defensive Abilities</b> {{ defensive_abilities|lower|trim }}; {% endif %}{% if dr is defined %}<b>DR</b> {{ dr|lower|trim }};{% endif %}{% if immunities is defined %}<b>Immune</b> {{ immunities|lower|trim }}; {% endif %}{% if resistances is defined %}<b>Resist</b> {{ resistances|lower|trim }}; {% endif %}{% if sr is defined %}<b>SR</b> {{ sr }}{% endif %}
 </p>
 
 <!-- Weakness TYPE Abilities -->
-<b>Weaknesses</b> vulnerable to fire
+{% if weaknesses is defined %}
+<b>Weaknesses</b> {{ weaknesses }}
+{% endif %}
 <!-- End Weakness TYPE Abilities -->
 
 <!-- Defensive Gear -->
