@@ -1,6 +1,6 @@
 from jinja2 import Environment, FileSystemLoader
 
-def required_field(field, model, question = ''):
+def required_field(model, field, question = ''):
   value = ''
   if question:
     value = input('* ' + question + ': ')
@@ -12,7 +12,7 @@ def required_field(field, model, question = ''):
   else:
     raise Exception('This field is required!')
 
-def optional_field(field, model, question = ''):
+def optional_field(model, field, question = ''):
   value = ''
   if question:
     value = input(question + ': ')
@@ -26,14 +26,17 @@ def get_model():
   print('Fields with a * are required.')
   model = {}
 
-  required_field('name', model)
-  optional_field('cr', model, 'CR')
-  optional_field('gender', model)
-  optional_field('race', model)
-  optional_field('class', model, 'Class(es)')
-  required_field('alignment', model)
-  required_field('size', model)
-  required_field('type', model)
+  required_field(model, 'name')
+  optional_field(model, 'cr', 'CR')
+  optional_field(model, 'gender')
+  optional_field(model, 'race')
+  optional_field(model, 'class', 'Class(es)')
+  required_field(model, 'alignment')
+  required_field(model, 'size')
+  required_field(model, 'type')
+  required_field(model, 'initiative')
+  optional_field(model, 'senses')
+  required_field(model, 'perception')
 
   return model
 

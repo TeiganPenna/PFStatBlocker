@@ -81,10 +81,10 @@ Pathfinder Statblock Template
 
 <!-- initiative, senses -->
 <p>
-<b>Init</b> +6;
+<b>Init</b> {{ initiative }};
 <b>Senses</b>
 <!-- Sense and Vision TYPE Abilities --><!-- End Sense TYPE Abilities -->
-darkvision 60ft; Perception +24
+{% if senses is defined %}{{ senses }}; {% endif %}Perception {{ perception }}
 </p>
 
 <!-- auras -->
