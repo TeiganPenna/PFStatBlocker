@@ -23,7 +23,7 @@ def main():
   model = get_model()
 
   env = Environment(loader=FileSystemLoader('templates'))
-  template = env.get_template('statblock.txt')
+  template = env.get_template('statblock.jinja')
   stat_block = template.render(model)
 
   filename = model['name'].lower() + '.htm'
