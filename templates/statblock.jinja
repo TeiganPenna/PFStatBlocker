@@ -173,28 +173,36 @@ Pathfinder Statblock Template
   </tr>
 </tbody></table>
 
-<b>Str</b> 26, <b>Dex</b> 14, <b>Con</b> -, <b>Int</b> 10, <b>Wis</b> 17, <b>Cha</b> 18
+<b>Str</b> {{ str|trim }}, <b>Dex</b> {{ dex|trim }}, <b>Con</b> {{ con|trim }}, <b>Int</b> {{ int|trim }}, <b>Wis</b> {{ wis|trim }}, <b>Cha</b> {{ cha|trim }}
 <br>
 
-<b>Base Atk</b> +9; <b>CMB</b> +18<b>; CMD</b> 33
+<b>Base Atk</b> {{ bab|trim }}; <b>CMB</b> {{ cmb|trim }}; <b>CMD</b> {{ cmd|trim }}
 <br>
 
+{% if feats is defined %}
 <p>
-<b>Feats </b>Combat Reflexes, Deflect Arrows, Improved Initiative, Improved Unarmed Strike, Iron Will, Lightning Reflexes, Power Attack, Skill Focus (Perception), Stunning Fist, Vital Strike</p>
+<b>Feats</b> {{ feats|trim }}</p>
+{% endif %}
 
+{% if skills is definded %}
 <p>
 <b>Skills</b>
-Acrobatics +17 (+21 when jumping), Intimidate +19, Perception +24, Sense Motive +18
+{{ skills }}
 </p>
+{% endif %}
 
 
 <!-- Languages and Communicate TYPE Abilities -->
-<p><b>Languages</b> Common, Tien</p>
+{% if languages is defined %}
+<p><b>Languages</b> {{ languages|trim }}</p>
+{% endif %}
 <!-- End Languages Communicate TYPE Abilities -->
 
 <!-- SpecialQuality TYPE Abilities -->
+{% if sq is defined %}
 <p>
-<b>SQ</b> fast movement, ki pool (5 points, magic), maneuver training, slow fall 20 ft.</p>
+<b>SQ</b> {{ sq|trim }}</p>
+{% endif %}
 <!-- End SpecialQuality TYPE Abilities -->
 
 <!-- Animal Tricks TYPE Abilities -->
@@ -205,8 +213,13 @@ Acrobatics +17 (+21 when jumping), Intimidate +19, Perception +24, Sense Motive 
 <!-- Afflictions End -->
 
 <!-- Equipment -->
+{% if combat_gear is defined %}
 <p>
-<!-- Combat Gear --><b>Gear</b> <i>amulet of mighty fists +1</i>, <i>belt of giant strength</i>, black key</p>
+<b>Combat Gear</b> {{ combat_gear|trim }}</p>
+{% endif %}
+{% if other_gear is defined %}
+<p><b>Other Gear</b> {{ other_gear|trim }}</p>
+{% endif %}
 <!-- Equipment End -->
 
 <!-- SpellBooks -->

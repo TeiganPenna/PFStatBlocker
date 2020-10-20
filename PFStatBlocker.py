@@ -26,7 +26,7 @@ def get_model():
   print('Fields with a * are required.')
   model = {}
 
-  # TODO allow italics, allow multiple attack lines
+  # TODO allow italics, allow multiple attack lines, spells
 
   required_field(model, 'name')
   optional_field(model, 'cr', 'CR')
@@ -62,6 +62,21 @@ def get_model():
   required_field(model, 'space')
   required_field(model, 'reach')
   optional_field(model, 'special_attacks', 'Special attacks')
+  required_field(model, 'str', 'Strength')
+  required_field(model, 'dex', 'Dexterity')
+  required_field(model, 'con', 'Constitution')
+  required_field(model, 'int', 'Intelligence')
+  required_field(model, 'wis', 'Wisdom')
+  required_field(model, 'cha', 'Charisma')
+  required_field(model, 'bab', 'Base Attack')
+  required_field(model, 'cmb', 'CMB')
+  required_field(model, 'cmd', 'CMD')
+  optional_field(model, 'feats')
+  optional_field(model, 'skills')
+  optional_field(model, 'languages')
+  optional_field(model, 'sq', 'Special Qualities')
+  optional_field(model, 'combat_gear', 'Combat Gear')
+  optional_field(model, 'other_gear', 'Other Gear')
 
   return model
 
