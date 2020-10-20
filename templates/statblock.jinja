@@ -116,7 +116,7 @@ Pathfinder Statblock Template
 
 <!-- Weakness TYPE Abilities -->
 {% if weaknesses is defined %}
-<b>Weaknesses</b> {{ weaknesses }}
+<b>Weaknesses</b> {{ weaknesses|lower|trim }}
 {% endif %}
 <!-- End Weakness TYPE Abilities -->
 
@@ -128,18 +128,26 @@ Pathfinder Statblock Template
     <td>OFFENSE</td>
   </tr>
 </tbody></table>
-<b>Speed</b> 40 ft.<!-- ModifyMovement TYPE Abilities -->
+<b>Speed</b> {{ speed|lower|trim }}<!-- ModifyMovement TYPE Abilities -->
 <!-- End ModifyMovement TYPE Abilities -->
 
 <!-- Attacks -->
 <br>
-<b>Melee</b> flurry of blows +17/+17/+12 (1d8+9), +1 slam +18 (1d8+9 plus mummy rot)<br>
+{% if melee is defined %}
+<b>Melee</b> {{ melee|trim }}<br>
+{% endif %}
+{% if ranged is defined %}
+<b>Ranged</b> {{ ranged|trim }}<br>
+{% endif %}
 <!-- End Attacks -->
 
 <!-- Space and Reach -->
+<b>Space</b> {{ space|lower|trim }}; <b>Reach</b> {{ reach|lower|trim }}<br>
 
 <!-- SpecialAttack TYPE Abilities -->
-<b>Special Attacks</b> flurry of blows, stunning fist (6/day, DC 15)
+{% if special_attacks is defined %}
+<b>Special Attacks</b> {{ special_attacks|trim }}
+{% endif %}
 <!-- End SpecialAttack TYPE Abilities -->
 
 <!-- Innate Spell-Like Abilities -->
@@ -149,7 +157,6 @@ Pathfinder Statblock Template
 <!-- End Other Spell-Like Abilities -->
 
 <!-- Domain Power Spell-Like Abilities -->
-
 
 <!-- Known Spells -->
 <!-- End Known Spells -->

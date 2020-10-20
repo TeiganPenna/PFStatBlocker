@@ -26,6 +26,8 @@ def get_model():
   print('Fields with a * are required.')
   model = {}
 
+  # TODO allow italics, allow multiple attack lines
+
   required_field(model, 'name')
   optional_field(model, 'cr', 'CR')
   optional_field(model, 'gender')
@@ -54,6 +56,12 @@ def get_model():
   optional_field(model, 'resistances')
   optional_field(model, 'sr', 'SR')
   optional_field(model, 'weaknesses')
+  required_field(model, 'speed')
+  optional_field(model, 'melee', 'Melee attack line')
+  optional_field(model, 'ranged', 'Ranged attack line')
+  required_field(model, 'space')
+  required_field(model, 'reach')
+  optional_field(model, 'special_attacks', 'Special attacks')
 
   return model
 
