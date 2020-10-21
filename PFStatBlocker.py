@@ -49,7 +49,7 @@ def get_slas(model):
   if at_will_slas:
     spell_like_abilities.append({ 'category': 'At will', 'slas': at_will_slas })
 
-  sla_category = input('Next SLA category (e.g. 1/day')
+  sla_category = input('Next SLA category (e.g. 1/day): ')
   while sla_category:
     slas = input(sla_category + ' SLAs: ')
     spell_like_abilities.append({ 'category': sla_category, 'slas': slas })
@@ -57,12 +57,25 @@ def get_slas(model):
 
   if len(spell_like_abilities) > 0:
     model['spell_like_abilities'] = spell_like_abilities
+
+def get_special_abilities(model):
+  special_abilities = []
+  count = 1
+  special_ability_name = input('Special Ability ' + str(count) + ' (Name): ')
+  while special_ability_name:
+    special_ability_desc = input('Special Ability ' + str(count) + ' (Description): ')
+    special_abilities.append({ 'name': special_ability_name, 'desc': special_ability_desc })
+    count += 1
+    special_ability_name = input('Special Ability ' + str(count) + ' (Name): ')
+
+  if len(special_abilities):
+    model['special_abilities'] = special_abilities
   
 def get_model():
   print('Fields with a * are required.')
   model = {}
 
-  # TODO allow italics, allow multiple attack lines, spells
+  # TODO allow italics, allow multiple attack lines, morale
 
   required_field(model, 'name')
   optional_field(model, 'cr', 'CR')
@@ -132,6 +145,8 @@ def get_model():
   optional_field(model, 'sq', 'Special Qualities')
   optional_field(model, 'combat_gear', 'Combat Gear')
   optional_field(model, 'other_gear', 'Other Gear')
+
+  get_special_abilities(model)
 
   return model
 

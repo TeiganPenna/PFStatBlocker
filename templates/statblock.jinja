@@ -44,7 +44,7 @@ Pathfinder Statblock Template
 			margin-top: 2px;
 			margin-bottom: 2px;
 		}
-		table.name {
+		table.header {
 			width: 100%;
 			color: white;
 			background: black;
@@ -52,6 +52,8 @@ Pathfinder Statblock Template
 		}
 		td.name {
 			font-variant: small-caps;
+		}
+		td {
 			padding-left: 5px;
 			padding-right: 5px;
 		}
@@ -59,16 +61,14 @@ Pathfinder Statblock Template
 </head>
 
 <body>
-<table class="name">
-	<tbody><tr>
-		<td class="name">{{ name|upper|trim }}</td>
-		{% if cr is defined %}
-		<td class="name" align="right">CR {{ cr|trim }}</td>
-		{% endif %}
-	</tr>
+<table class="header">
+  <tbody><tr>
+    <td class="name">{{ name|title|trim }}</td>
+       {% if cr is defined %}
+       <td class="name" align="right">CR {{ cr|trim }}</td>
+       {% endif %}
+  </tr>
 </tbody></table>
-
-
 
 
 <!-- gender, classes -->
@@ -151,12 +151,12 @@ Pathfinder Statblock Template
 <!-- End SpecialAttack TYPE Abilities -->
 
 <!-- Innate Spell-Like Abilities -->
-{% if sla_caster_leve is defined %}
+{% if sla_caster_level is defined %}
 <p><b>Spell-Like Abilities</b>
-(CL {{ sla_caster_level }}, concentration {{ sla_concentration }}:
+(CL {{ sla_caster_level|lower|trim }}, concentration {{ sla_concentration|trim }}):
 {% if spell_like_abilities is defined %}
 {% for spell_like_ability in spell_like_abilities %}
-<p class="spells"><b>{{ spell_like_ability['category'] }}&mdash;</b><i>{{ spell_like_ability['slas'] }}</i></p>
+<p class="spells"><b>{{ spell_like_ability['category']|lower|trim }}&mdash;</b><i>{{ spell_like_ability['slas']|trim }}</i></p>
 {% endfor %}
 {% endif %}
 {% endif %}
@@ -168,79 +168,79 @@ Pathfinder Statblock Template
 <!-- Domain Power Spell-Like Abilities -->
 {% if domain_powers is defined %}
 <br><b>Domain Power Spell-Like Abilities</b>
-{{ domain_powers }}
+{{ domain_powers|trim }}
 {% endif %}
 
 <!-- Known Spells -->
 {% if spontaneous_spell_class is defined %}
-<p><b>{{ spontaneous_spell_class }} Spells Known</b>
-(CL {{ spontaneous_caster_level }}, concentration {{ spontaneous_concentration }}:
+<p><b>{{ spontaneous_spell_class|title|trim }} Spells Known</b>
+(CL {{ spontaneous_caster_level|lower|trim }}, concentration {{ spontaneous_concentration|trim }}):
 {% if spontaneous_9_spells is defined %}
-<p class="spells"><b>9th ({{ spontaneous_9_slots }}/day)&mdash;</b><i>{{ spontaneous_9_spells }}</i></p>
+<p class="spells"><b>9th ({{ spontaneous_9_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_9_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_8_spells is defined %}
-<p class="spells"><b>8th ({{ spontaneous_8_slots }}/day)&mdash;</b><i>{{ spontaneous_8_spells }}</i></p>
+<p class="spells"><b>8th ({{ spontaneous_8_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_8_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_7_spells is defined %}
-<p class="spells"><b>7th ({{ spontaneous_7_slots }}/day)&mdash;</b><i>{{ spontaneous_7_spells }}</i></p>
+<p class="spells"><b>7th ({{ spontaneous_7_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_7_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_6_spells is defined %}
-<p class="spells"><b>6th ({{ spontaneous_6_slots }}/day)&mdash;</b><i>{{ spontaneous_6_spells }}</i></p>
+<p class="spells"><b>6th ({{ spontaneous_6_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_6_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_5_spells is defined %}
-<p class="spells"><b>5th ({{ spontaneous_5_slots }}/day)&mdash;</b><i>{{ spontaneous_5_spells }}</i></p>
+<p class="spells"><b>5th ({{ spontaneous_5_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_5_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_4_spells is defined %}
-<p class="spells"><b>4th ({{ spontaneous_4_slots }}/day)&mdash;</b><i>{{ spontaneous_4_spells }}</i></p>
+<p class="spells"><b>4th ({{ spontaneous_4_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_4_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_3_spells is defined %}
-<p class="spells"><b>3rd ({{ spontaneous_3_slots }}/day)&mdash;</b><i>{{ spontaneous_3_spells }}</i></p>
+<p class="spells"><b>3rd ({{ spontaneous_3_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_3_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_2_spells is defined %}
-<p class="spells"><b>2nd ({{ spontaneous_2_slots }}/day)&mdash;</b><i>{{ spontaneous_2_spells }}</i></p>
+<p class="spells"><b>2nd ({{ spontaneous_2_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_2_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_1_spells is defined %}
-<p class="spells"><b>1st ({{ spontaneous_1_slots }}/day)&mdash;</b><i>{{ spontaneous_1_spells }}</i></p>
+<p class="spells"><b>1st ({{ spontaneous_1_slots|trim }}/day)&mdash;</b><i>{{ spontaneous_1_spells|trim }}</i></p>
 {% endif %}
 {% if spontaneous_0_spells is defined %}
-<p class="spells"><b>0 (at will)&mdash;</b><i>{{ prepared_0_spells }}</i></p>
+<p class="spells"><b>0 (at will)&mdash;</b><i>{{ spontaneous_0_spells|trim }}</i></p>
 {% endif %}
 {% endif %}
 <!-- End Known Spells -->
 
 <!-- Prepared Spells -->
 {% if prepared_spell_class is defined %}
-<p><b>{{ prepared_spell_class }} Spells Prepared</b>
-(CL {{ prepared_caster_level }}, concentration {{ prepared_concentration }}:
+<p><b>{{ prepared_spell_class|title|trim }} Spells Prepared</b>
+(CL {{ prepared_caster_level|lower|trim }}, concentration {{ prepared_concentration|trim}}):
 {% if prepared_9_spells is defined %}
-<p class="spells"><b>9th&mdash;</b><i>{{ prepared_9_spells }}</i></p>
+<p class="spells"><b>9th&mdash;</b><i>{{ prepared_9_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_8_spells is defined %}
-<p class="spells"><b>8th&mdash;</b><i>{{ prepared_8_spells }}</i></p>
+<p class="spells"><b>8th&mdash;</b><i>{{ prepared_8_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_7_spells is defined %}
-<p class="spells"><b>7th&mdash;</b><i>{{ prepared_7_spells }}</i></p>
+<p class="spells"><b>7th&mdash;</b><i>{{ prepared_7_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_6_spells is defined %}
-<p class="spells"><b>6th&mdash;</b><i>{{ prepared_6_spells }}</i></p>
+<p class="spells"><b>6th&mdash;</b><i>{{ prepared_6_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_5_spells is defined %}
-<p class="spells"><b>5th&mdash;</b><i>{{ prepared_5_spells }}</i></p>
+<p class="spells"><b>5th&mdash;</b><i>{{ prepared_5_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_4_spells is defined %}
-<p class="spells"><b>4th&mdash;</b><i>{{ prepared_4_spells }}</i></p>
+<p class="spells"><b>4th&mdash;</b><i>{{ prepared_4_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_3_spells is defined %}
-<p class="spells"><b>3rd&mdash;</b><i>{{ prepared_3_spells }}</i></p>
+<p class="spells"><b>3rd&mdash;</b><i>{{ prepared_3_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_2_spells is defined %}
-<p class="spells"><b>2nd&mdash;</b><i>{{ prepared_2_spells }}</i></p>
+<p class="spells"><b>2nd&mdash;</b><i>{{ prepared_2_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_1_spells is defined %}
-<p class="spells"><b>1st&mdash;</b><i>{{ prepared_1_spells }}</i></p>
+<p class="spells"><b>1st&mdash;</b><i>{{ prepared_1_spells|trim }}</i></p>
 {% endif %}
 {% if prepared_0_spells is defined %}
-<p class="spells"><b>0 (at will)&mdash;</b><i>{{ prepared_0_spells }}</i></p>
+<p class="spells"><b>0 (at will)&mdash;</b><i>{{ prepared_0_spells|trim }}</i></p>
 {% endif %}
 {% endif %}
 <!-- End Prepared Spells -->
@@ -250,7 +250,7 @@ Pathfinder Statblock Template
 <p class="spells">
 <b>D</b> Domain spell;
 <b>Domains</b>
-{{ domain }}</p>
+{{ domain|trim }}</p>
 {% endif %}
 <!-- End Domain list -->
 
@@ -312,4 +312,19 @@ Pathfinder Statblock Template
 <!-- SpellBooks -->
 <!-- End SpellBooks -->
 
+{% if special_abilities is defined %}
+<table class="section">
+  <tbody><tr>
+    <td>SPECIAL ABILITIES</td>
+  </tr>
+</tbody></table>
+{% for special_ability in special_abilities %}
+<table class="header">
+  <tbody><tr>
+    <td>{{ special_ability['name']|title|trim }}</td>
+  </tr>
+</tbody></table>
+<p>{{ special_ability['desc']|trim }}</p>
+{% endfor %}
+{% endif %}
 </body></html>
