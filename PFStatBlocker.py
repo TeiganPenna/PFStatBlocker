@@ -30,10 +30,9 @@ def get_ordinal_suffix(n):
 def get_spells(model, spell_type):
   optional_field(model, spell_type + '_0_spells', '0th level spells ' + spell_type)
   for level in range(1, 10):
-    if not optional_field(model, spell_type + '_' + str(level) '_spells', get_ordinal_suffix(level) + ' level spells ' + spell_type)
+    if not optional_field(model, spell_type + '_' + str(level) + '_spells', get_ordinal_suffix(level) + ' level spells ' + spell_type):
       break
   
-
 def get_model():
   print('Fields with a * are required.')
   model = {}
@@ -80,7 +79,7 @@ def get_model():
   optional_field(model, 'special_attacks', 'Special attacks')
   if optional_field(model, 'domain'):
     required_field(model, 'domain_powers', 'Domain Powers')
-  if optional_field(model, 'prepared_spell_class', 'Prepared Spell Casting Class')
+  if optional_field(model, 'prepared_spell_class', 'Prepared Spell Casting Class'):
     required_field(model, 'prepared_caster_level', 'Caster Level')
     required_field(model, 'prepared_concentration', 'Concentration')
     get_spells(model, 'prepared')
