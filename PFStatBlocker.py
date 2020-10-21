@@ -39,6 +39,24 @@ def get_spontaneous_spells(model):
     if not optional_field(model, 'spontaneous_' + str(level) + '_spells', get_ordinal_suffix(level) + ' level spells known'):
       break
     required_field(model, 'spontaneous_' + str(level) + '_slots', get_ordinal_suffix(level) + ' level spells per day')
+
+def get_slas(model):
+  spell_like_abilities = []
+  constant_slas = input('Constant SLAs: ')
+  if constant_slas:
+    spell_like_abilities.append({ 'category': 'Constant', 'slas': constant_slas })
+  at_will_slas = input('At will SLAs: ')
+  if at_will_slas:
+    spell_like_abilities.append({ 'category': 'At will', 'slas': at_will_slas })
+
+  sla_category = input('Next SLA category (e.g. 1/day')
+  while sla_category:
+    slas = input(sla_category + ' SLAs: ')
+    spell_like_abilities.append({ 'category': sla_category, 'slas': slas })
+    sla_category = input('Next SLA category (e.g. 1/day): ')
+
+  if len(spell_like_abilities) > 0:
+    model['spell_like_abilities'] = spell_like_abilities
   
 def get_model():
   print('Fields with a * are required.')
@@ -93,7 +111,10 @@ def get_model():
   if optional_field(model, 'spontaneous_spell_class', 'Spontaneous Spell Casting Class'):
     required_field(model, 'spontaneous_caster_level', 'Caster Level')
     required_field(model, 'spontaneous_concentration', 'Concentration')
-    get_spells(model, 'known')
+    get_spontaneous_spells(model)
+  if optional_field(model, 'sla_caster_level', 'SLA Caster Level'):
+    required_field(model, 'sla_concentration', 'SLA Concentration')
+    get_slas(model)
 
   # statistics and gear
   required_field(model, 'str', 'Strength')
