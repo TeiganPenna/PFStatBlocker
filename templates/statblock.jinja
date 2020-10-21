@@ -254,6 +254,23 @@ Pathfinder Statblock Template
 {% endif %}
 <!-- End Domain list -->
 
+{% if before_combat_tactics is defined or during_combat_tactics is defined or morale is defined %}
+<table class="section">
+  <tbody><tr>
+    <td>TACTICS</td>
+  </tr>
+</tbody></table>
+{% if before_combat_tactics is defined %}
+<p><b>Before Combat</b> {{ before_combat_tactics }}</p>
+{% endif %}
+{% if during_combat_tactics is defined %}
+<p><b>During Combat</b> {{ during_combat_tactics }}</p>
+{% endif %}
+{% if morale is defined %}
+<p><b>Morale</b> {{ morale }}</p>
+{% endif %}
+{% endif %}
+
 <table class="section">
   <tbody><tr>
     <td>STATISTICS</td>

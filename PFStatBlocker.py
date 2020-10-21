@@ -75,7 +75,7 @@ def get_model():
   print('Fields with a * are required.')
   model = {}
 
-  # TODO allow italics, allow multiple attack lines, morale
+  # TODO allow italics, allow multiple attack lines
 
   required_field(model, 'name')
   optional_field(model, 'cr', 'CR')
@@ -128,6 +128,11 @@ def get_model():
   if optional_field(model, 'sla_caster_level', 'SLA Caster Level'):
     required_field(model, 'sla_concentration', 'SLA Concentration')
     get_slas(model)
+
+  # morale
+  optional_field(model, 'before_combat_tactics', 'Before combat tactics')
+  optional_field(model, 'during_combat_tactics', 'During combat tactics')
+  optional_field(model, 'morale')
 
   # statistics and gear
   required_field(model, 'str', 'Strength')
