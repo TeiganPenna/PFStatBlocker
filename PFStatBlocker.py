@@ -27,11 +27,18 @@ def optional_field(model, field, question = ''):
 def get_ordinal_suffix(n):
   return str(n)+('th' if 4<=n%100<=20 else {1:'st',2:'nd',3:'rd'}.get(n%10, 'th'))
 
-def get_spells(model, spell_type):
-  optional_field(model, spell_type + '_0_spells', '0th level spells ' + spell_type)
+def get_prepared_spells(model):
+  optional_field(model, 'prepared_0_spells', '0th level spells prepared')
   for level in range(1, 10):
-    if not optional_field(model, spell_type + '_' + str(level) + '_spells', get_ordinal_suffix(level) + ' level spells ' + spell_type):
+    if not optional_field(model, 'prepared_' + str(level) + '_spells', get_ordinal_suffix(level) + ' level spells prepared'):
       break
+
+def get_spontaneous_spells(model):
+  optional_field(model, 'spontaneous_0_spells', '0th level spells known')
+  for level in range(1, 10):
+    if not optional_field(model, 'spontaneous_' + str(level) + '_spells', get_ordinal_suffix(level) + ' level spells known'):
+      break
+    required_field(model, 'spontaneous_' + str(level) + '_slots', get_ordinal_suffix(level) + ' level spells per day')
   
 def get_model():
   print('Fields with a * are required.')
@@ -82,7 +89,11 @@ def get_model():
   if optional_field(model, 'prepared_spell_class', 'Prepared Spell Casting Class'):
     required_field(model, 'prepared_caster_level', 'Caster Level')
     required_field(model, 'prepared_concentration', 'Concentration')
-    get_spells(model, 'prepared')
+    get_prepared_spells(model)
+  if optional_field(model, 'spontaneous_spell_class', 'Spontaneous Spell Casting Class'):
+    required_field(model, 'spontaneous_caster_level', 'Caster Level')
+    required_field(model, 'spontaneous_concentration', 'Concentration')
+    get_spells(model, 'known')
 
   # statistics and gear
   required_field(model, 'str', 'Strength')

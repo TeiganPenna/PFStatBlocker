@@ -163,6 +163,40 @@ Pathfinder Statblock Template
 {% endif %}
 
 <!-- Known Spells -->
+{% if spontaneous_spell_class is defined %}
+<p><b>{{ spontaneous_spell_class }} Spells Known</b>
+(CL {{ spontaneous_caster_level }}, concentration {{ spontaneous_concentration }}:
+{% if spontaneous_9_spells is defined %}
+<p class="spells">9th ({{ spontaneous_9_slots }}/day)&mdash;<i>{{ spontaneous_9_spells }}</i></p>
+{% endif %}
+{% if spontaneous_8_spells is defined %}
+<p class="spells">8th ({{ spontaneous_8_slots }}/day)&mdash;<i>{{ spontaneous_8_spells }}</i></p>
+{% endif %}
+{% if spontaneous_7_spells is defined %}
+<p class="spells">7th ({{ spontaneous_7_slots }}/day)&mdash;<i>{{ spontaneous_7_spells }}</i></p>
+{% endif %}
+{% if spontaneous_6_spells is defined %}
+<p class="spells">6th ({{ spontaneous_6_slots }}/day)&mdash;<i>{{ spontaneous_6_spells }}</i></p>
+{% endif %}
+{% if spontaneous_5_spells is defined %}
+<p class="spells">5th ({{ spontaneous_5_slots }}/day)&mdash;<i>{{ spontaneous_5_spells }}</i></p>
+{% endif %}
+{% if spontaneous_4_spells is defined %}
+<p class="spells">4th ({{ spontaneous_4_slots }}/day)&mdash;<i>{{ spontaneous_4_spells }}</i></p>
+{% endif %}
+{% if spontaneous_3_spells is defined %}
+<p class="spells">3rd ({{ spontaneous_3_slots }}/day)&mdash;<i>{{ spontaneous_3_spells }}</i></p>
+{% endif %}
+{% if spontaneous_2_spells is defined %}
+<p class="spells">2nd ({{ spontaneous_2_slots }}/day)&mdash;<i>{{ spontaneous_2_spells }}</i></p>
+{% endif %}
+{% if spontaneous_1_spells is defined %}
+<p class="spells">1st ({{ spontaneous_1_slots }}/day)&mdash;<i>{{ spontaneous_1_spells }}</i></p>
+{% endif %}
+{% if spontaneous_0_spells is defined %}
+<p class="spells">0 (at will)&mdash;<i>{{ prepared_0_spells }}</i></p>
+{% endif %}
+{% endif %}
 <!-- End Known Spells -->
 
 <!-- Prepared Spells -->
