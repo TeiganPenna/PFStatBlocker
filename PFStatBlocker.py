@@ -21,6 +21,18 @@ def optional_field(model, field, question = ''):
 
   if value:
     model[field] = value
+    return True
+  return False
+
+def get_ordinal_suffix(n):
+  return str(n)+('th' if 4<=n%100<=20 else {1:'st',2:'nd',3:'rd'}.get(n%10, 'th'))
+
+def get_spells(model, spell_type):
+  optional_field(model, spell_type + '_0_spells', '0th level spells ' + spell_type)
+  for level in range(1, 10):
+    if not optional_field(model, spell_type + '_' + str(level) '_spells', get_ordinal_suffix(level) + ' level spells ' + spell_type)
+      break
+  
 
 def get_model():
   print('Fields with a * are required.')
@@ -40,6 +52,8 @@ def get_model():
   optional_field(model, 'senses')
   required_field(model, 'perception')
   optional_field(model, 'aura', 'Aura (Range, DC)')
+
+  # defense
   required_field(model, 'ac', 'AC')
   required_field(model, 'touch_ac', 'Touch AC')
   required_field(model, 'flatfooted_ac', 'Flat-footed AC')
@@ -56,12 +70,22 @@ def get_model():
   optional_field(model, 'resistances')
   optional_field(model, 'sr', 'SR')
   optional_field(model, 'weaknesses')
+
+  # offense
   required_field(model, 'speed')
   optional_field(model, 'melee', 'Melee attack line')
   optional_field(model, 'ranged', 'Ranged attack line')
   required_field(model, 'space')
   required_field(model, 'reach')
   optional_field(model, 'special_attacks', 'Special attacks')
+  if optional_field(model, 'domain'):
+    required_field(model, 'domain_powers', 'Domain Powers')
+  if optional_field(model, 'prepared_spell_class', 'Prepared Spell Casting Class')
+    required_field(model, 'prepared_caster_level', 'Caster Level')
+    required_field(model, 'prepared_concentration', 'Concentration')
+    get_spells(model, 'prepared')
+
+  # statistics and gear
   required_field(model, 'str', 'Strength')
   required_field(model, 'dex', 'Dexterity')
   required_field(model, 'con', 'Constitution')
