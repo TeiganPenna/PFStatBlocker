@@ -97,6 +97,7 @@ def get_model():
   required_field(model, 'ac_breakdown', 'AC breakdown')
   required_field(model, 'hp', 'HP')
   required_field(model, 'hp_breakdown', 'HP breakdown')
+  optional_field(model, 'regeneration')
   required_field(model, 'fort', 'Fort save')
   required_field(model, 'ref', 'Reflex save')
   required_field(model, 'will', 'Will save')

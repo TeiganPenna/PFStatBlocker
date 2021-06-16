@@ -104,7 +104,7 @@ Pathfinder Statblock Template
 </p>
 
 <!-- hit points -->
-<b>hp</b> {{ hp }} ({{ hp_breakdown }})<!-- ModifyHP TYPE Abilities --><!-- End ModifyHP TYPE Abilities -->
+<b>hp</b> {{ hp }} ({{ hp_breakdown }})<!-- ModifyHP TYPE Abilities -->{% if regeneration is defined %}; regeneration {{ regeneration|lower|trim }}{% endif %}<!-- End ModifyHP TYPE Abilities -->
 <br>
 <b>Fort</b> {{ fort }}, <b>Ref</b> {{ ref }}, <b>Will</b> {{ will }}<!-- SaveBonus TYPE Abilities -->{% if save_bonus is defined %}, {{ save_bonus }}{% endif %}<br>
 <!-- End SaveBonus TYPE Abilities -->
